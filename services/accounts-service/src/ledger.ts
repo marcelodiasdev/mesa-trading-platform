@@ -37,20 +37,24 @@ export interface PostedTransaction {
 }
 
 export class UnbalancedTransactionError extends Error {
-  constructor(readonly deltaCents: bigint) {
+  readonly deltaCents: bigint;
+  constructor(deltaCents: bigint) {
     super(`Entries must sum to zero, off by ${deltaCents}`);
     this.name = "UnbalancedTransactionError";
+    this.deltaCents = deltaCents;
   }
 }
 
 export class InsufficientFundsError extends Error {
-  constructor(
-    readonly accountId: string,
-    readonly balanceCents: bigint,
-    readonly requestedCents: bigint,
-  ) {
+  readonly accountId: string;
+  readonly balanceCents: bigint;
+  readonly requestedCents: bigint;
+  constructor(accountId: string, balanceCents: bigint, requestedCents: bigint) {
     super(`Account ${accountId} holds ${balanceCents}, needs ${requestedCents}`);
     this.name = "InsufficientFundsError";
+    this.accountId = accountId;
+    this.balanceCents = balanceCents;
+    this.requestedCents = requestedCents;
   }
 }
 
@@ -84,6 +88,10 @@ export function createLedger(location = ":memory:") {
     `SELECT COALESCE(SUM(amount_cents), 0) AS total FROM entries`,
   );
 
+  for (const statement of [entriesOf, balanceOf, globalSum]) {
+    statement.setReadBigInts(true);
+  }
+
   function openAccount(id: string, kind: AccountKind, ownerId?: string): void {
     db.prepare(
       `INSERT OR IGNORE INTO accounts (id, kind, owner_id) VALUES (?, ?, ?)`,
@@ -91,7 +99,7 @@ export function createLedger(location = ":memory:") {
   }
 
   function balance(accountId: string): bigint {
-    const row = balanceOf.get(accountId) as { balance: number | bigint };
+    const row = balanceOf.get(accountId) as { balance: bigint };
     return BigInt(row.balance);
   }
 
@@ -101,10 +109,7 @@ export function createLedger(location = ":memory:") {
     occurredAt: string,
     replayed: boolean,
   ): PostedTransaction {
-    const rows = entriesOf.all(id) as {
-      account_id: string;
-      amount_cents: number | bigint;
-    }[];
+    const rows = entriesOf.all(id) as { account_id: string; amount_cents: bigint }[];
     return {
       id,
       kind,
@@ -158,27 +163,27 @@ export function createLedger(location = ":memory:") {
   }
 
   function statement(accountId: string, limit = 50) {
-    const rows = db
-      .prepare(
-        `SELECT e.id, e.amount_cents, e.created_at, t.kind, t.id AS transaction_id,
-                SUM(e.amount_cents) OVER (ORDER BY e.id) AS running
-         FROM entries e
-         JOIN transactions t ON t.id = e.transaction_id
-         WHERE e.account_id = ?
-         ORDER BY e.id DESC
-         LIMIT ?`,
-      )
-      .all(accountId, limit) as {
-      id: number;
-      amount_cents: number | bigint;
+    const query = db.prepare(
+      `SELECT e.id, e.amount_cents, e.created_at, t.kind, t.id AS transaction_id,
+              SUM(e.amount_cents) OVER (ORDER BY e.id) AS running
+       FROM entries e
+       JOIN transactions t ON t.id = e.transaction_id
+       WHERE e.account_id = ?
+       ORDER BY e.id DESC
+       LIMIT ?`,
+    );
+    query.setReadBigInts(true);
+    const rows = query.all(accountId, limit) as {
+      id: bigint;
+      amount_cents: bigint;
       created_at: string;
       kind: TransactionKind;
       transaction_id: string;
-      running: number | bigint;
+      running: bigint;
     }[];
 
     return rows.map((r) => ({
-      entryId: r.id,
+      entryId: Number(r.id),
       transactionId: r.transaction_id,
       kind: r.kind,
       amountCents: BigInt(r.amount_cents),
@@ -190,7 +195,7 @@ export function createLedger(location = ":memory:") {
   function reverse(transactionId: string, idempotencyKey?: string): PostedTransaction {
     const rows = entriesOf.all(transactionId) as {
       account_id: string;
-      amount_cents: number | bigint;
+      amount_cents: bigint;
     }[];
     if (rows.length === 0) throw new Error(`Unknown transaction ${transactionId}`);
 
@@ -206,7 +211,7 @@ export function createLedger(location = ":memory:") {
   }
 
   function totalAcrossAllAccounts(): bigint {
-    const row = globalSum.get() as { total: number | bigint };
+    const row = globalSum.get() as { total: bigint };
     return BigInt(row.total);
   }
 
