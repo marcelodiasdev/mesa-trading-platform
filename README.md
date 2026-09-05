@@ -216,10 +216,13 @@ produces exactly one order; a test asserting no personal data reaches the logs.
 ## Roadmap
 
 - [x] Monorepo foundation
-- [ ] Design system and Storybook
-- [ ] Shared contracts and HTTP client
+- [x] Design system and Storybook
+- [x] Integer-cent money type with property-based tests
+- [x] Shared contracts and HTTP client
+- [x] Accounts service with an immutable double-entry ledger
+- [ ] Orders service
+- [ ] Market data service
 - [ ] Host shell with routing and mocked auth
-- [ ] Mock services
 - [ ] Portfolio remote via Module Federation
 - [ ] Order ticket with idempotent submission
 - [ ] Live quote feed, order book, chart
