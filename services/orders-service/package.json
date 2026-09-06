@@ -1,0 +1,23 @@
+{
+  "name": "@mesa/orders-service",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.ts",
+    "start": "node src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@fastify/cors": "11.3.0",
+    "@mesa/contracts": "workspace:*",
+    "fastify": "5.11.3",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "vitest": "4.1.11"
+  }
+}

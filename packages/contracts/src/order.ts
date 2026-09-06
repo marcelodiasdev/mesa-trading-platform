@@ -51,12 +51,13 @@ export const canTransition = (from: OrderStatus, to: OrderStatus): boolean =>
   ORDER_TRANSITIONS[from].includes(to);
 
 export class IllegalTransitionError extends Error {
-  constructor(
-    readonly from: OrderStatus,
-    readonly to: OrderStatus,
-  ) {
+  readonly from: OrderStatus;
+  readonly to: OrderStatus;
+  constructor(from: OrderStatus, to: OrderStatus) {
     super(`Illegal order transition: ${from} -> ${to}`);
     this.name = "IllegalTransitionError";
+    this.from = from;
+    this.to = to;
   }
 }
 
