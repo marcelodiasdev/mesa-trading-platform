@@ -1,0 +1,35 @@
+
+> @mesa/accounts-service@0.0.0 test /Users/marcelodias/Documents/mesa-trading-platform/services/accounts-service
+> vitest run
+
+[?25l
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/Users/marcelodias/Documents/mesa-trading-platform/services/accounts-service[39m
+
+[?2026h
+[1m[33m ❯ [39m[22msrc/app.test.ts[2m [queued][22m
+
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m101ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K(node:12000) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1m[33m ❯ [39m[22msrc/app.test.ts[2m [queued][22m
+[1m[33m ❯ [39m[22msrc/ledger.test.ts[2m 1/16[22m
+
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m[1m[32m1 passed[39m[22m[90m (16)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m202ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/ledger.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+(node:11999) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [32m✓[39m src/app.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 70[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m30 passed[39m[22m[90m (30)[39m
+[2m   Start at [22m 12:26:52
+[2m   Duration [22m 344ms[2m (transform 141ms, setup 0ms, import 252ms, tests 99ms, environment 0ms)[22m
+
+[?25h

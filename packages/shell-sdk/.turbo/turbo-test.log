@@ -1,0 +1,31 @@
+
+> @mesa/shell-sdk@0.0.0 test /Users/marcelodias/Documents/mesa-trading-platform/packages/shell-sdk
+> vitest run
+
+[?25l
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/Users/marcelodias/Documents/mesa-trading-platform/packages/shell-sdk[39m
+
+[?2026h
+[1m[33m ❯ [39m[22msrc/http.test.ts[2m [queued][22m
+
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m0ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K
+[1m[33m ❯ [39m[22msrc/bus.test.ts[2m 1/9[22m
+[1m[33m ❯ [39m[22msrc/http.test.ts[2m [queued][22m
+
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m[1m[32m1 passed[39m[22m[90m (9)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m202ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/bus.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/http.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m26 passed[39m[22m[90m (26)[39m
+[2m   Start at [22m 12:26:52
+[2m   Duration [22m 268ms[2m (transform 173ms, setup 0ms, import 228ms, tests 31ms, environment 0ms)[22m
+
+[?25h

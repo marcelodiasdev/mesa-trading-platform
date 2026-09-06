@@ -1,0 +1,70 @@
+
+> @mesa/money@0.0.0 test /Users/marcelodias/Documents/mesa-trading-platform/packages/money
+> vitest run
+
+[?25l
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/Users/marcelodias/Documents/mesa-trading-platform/packages/money[39m
+
+[?2026h
+[1m[33m ❯ [39m[22msrc/money.test.ts[2m [queued][22m
+
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m0ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K
+[1m[33m ❯ [39m[22msrc/money.test.ts[2m 0/34[22m
+
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (34)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m200ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/money.test.ts [2m([22m[2m34 tests[22m[2m)[22m[32m 30[2mms[22m[39m
+   [32m✓[39m why integers instead of floats [2m(3)[22m
+     [32m✓[39m floating point cannot represent 0.1 + 0.2[32m 2[2mms[22m[39m
+     [32m✓[39m integer cents can[32m 0[2mms[22m[39m
+     [32m✓[39m survives a hundred thousand additions of one cent[32m 5[2mms[22m[39m
+   [32m✓[39m parseBRL [2m(14)[22m
+     [32m✓[39m parses 1.234,56[32m 0[2mms[22m[39m
+     [32m✓[39m parses 1234,56[32m 0[2mms[22m[39m
+     [32m✓[39m parses 0,05[32m 0[2mms[22m[39m
+     [32m✓[39m parses 0,5[32m 0[2mms[22m[39m
+     [32m✓[39m parses 12[32m 0[2mms[22m[39m
+     [32m✓[39m parses -1.234,56[32m 0[2mms[22m[39m
+     [32m✓[39m parses R$ 1.234,56[32m 0[2mms[22m[39m
+     [32m✓[39m rejects [32m 0[2mms[22m[39m
+     [32m✓[39m rejects abc[32m 0[2mms[22m[39m
+     [32m✓[39m rejects 1,234[32m 0[2mms[22m[39m
+     [32m✓[39m rejects 1.23,45[32m 0[2mms[22m[39m
+     [32m✓[39m rejects 1..2[32m 0[2mms[22m[39m
+     [32m✓[39m rejects 1,2,3[32m 0[2mms[22m[39m
+     [32m✓[39m round-trips through formatting[32m 3[2mms[22m[39m
+   [32m✓[39m formatting [2m(3)[22m
+     [32m✓[39m formats with the currency symbol[32m 0[2mms[22m[39m
+     [32m✓[39m formats without the symbol for dense tables[32m 0[2mms[22m[39m
+     [32m✓[39m keeps trailing zeros[32m 0[2mms[22m[39m
+   [32m✓[39m rounding is a business decision [2m(4)[22m
+     [32m✓[39m rounds a 0.35% brokerage fee up, so the house never loses a cent[32m 0[2mms[22m[39m
+     [32m✓[39m truncates exchange fees, so the customer is never overcharged[32m 0[2mms[22m[39m
+     [32m✓[39m halfUp and halfEven disagree exactly at the tie[32m 0[2mms[22m[39m
+     [32m✓[39m rounds symmetrically around zero[32m 0[2mms[22m[39m
+   [32m✓[39m allocate [2m(5)[22m
+     [32m✓[39m never loses the cent that does not divide[32m 0[2mms[22m[39m
+     [32m✓[39m splits proportionally[32m 0[2mms[22m[39m
+     [32m✓[39m preserves the total for any amount and any number of parts[32m 9[2mms[22m[39m
+     [32m✓[39m preserves the total for any set of ratios[32m 2[2mms[22m[39m
+     [32m✓[39m rejects nonsense[32m 0[2mms[22m[39m
+   [32m✓[39m arithmetic laws [2m(4)[22m
+     [32m✓[39m addition is commutative[32m 1[2mms[22m[39m
+     [32m✓[39m subtraction inverts addition[32m 1[2mms[22m[39m
+     [32m✓[39m multiplying by a whole quantity is exact[32m 1[2mms[22m[39m
+     [32m✓[39m compare is consistent with cents ordering[32m 2[2mms[22m[39m
+   [32m✓[39m currency safety [2m(1)[22m
+     [32m✓[39m refuses to combine different currencies[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m34 passed[39m[22m[90m (34)[39m
+[2m   Start at [22m 12:26:52
+[2m   Duration [22m 240ms[2m (transform 64ms, setup 0ms, import 105ms, tests 30ms, environment 0ms)[22m
+
+[?25h

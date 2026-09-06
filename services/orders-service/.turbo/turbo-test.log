@@ -1,0 +1,39 @@
+
+> @mesa/orders-service@0.0.0 test /Users/marcelodias/Documents/mesa-trading-platform/services/orders-service
+> vitest run
+
+[?25l
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/Users/marcelodias/Documents/mesa-trading-platform/services/orders-service[39m
+
+[?2026h
+[1m[33m ❯ [39m[22msrc/risk.test.ts[2m [queued][22m
+
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m101ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K(node:11997) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1m[33m ❯ [39m[22msrc/repository.test.ts[2m 0/25[22m
+
+[2m Test Files [22m[1m[32m1 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m[1m[32m13 passed[39m[22m[90m (38)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m201ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/risk.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+
+[1m[33m ❯ [39m[22msrc/repository.test.ts[2m 0/25[22m
+
+[2m Test Files [22m[1m[32m1 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m[1m[32m13 passed[39m[22m[90m (38)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m201ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/repository.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m38 passed[39m[22m[90m (38)[39m
+[2m   Start at [22m 12:26:52
+[2m   Duration [22m 277ms[2m (transform 177ms, setup 0ms, import 230ms, tests 22ms, environment 0ms)[22m
+
+[?25h

@@ -6,8 +6,8 @@
       "outputs": ["dist/**", "storybook-static/**"]
     },
     "dev": { "cache": false, "persistent": true },
-    "lint": { "dependsOn": ["^build"] },
-    "typecheck": { "dependsOn": ["^build"] },
-    "test": { "dependsOn": ["^build"], "outputs": ["coverage/**"] }
+    "lint": {},
+    "typecheck": {},
+    "test": {}
   }
 }

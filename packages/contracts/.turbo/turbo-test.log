@@ -1,0 +1,61 @@
+
+> @mesa/contracts@0.0.0 test /Users/marcelodias/Documents/mesa-trading-platform/packages/contracts
+> vitest run
+
+[?25l
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/Users/marcelodias/Documents/mesa-trading-platform/packages/contracts[39m
+
+[?2026h
+[1m[33m ❯ [39m[22msrc/order.test.ts[2m [queued][22m
+
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m101ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K
+[1m[33m ❯ [39m[22msrc/order.test.ts[2m 0/28[22m
+
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (28)[39m
+[2m   Start at [22m12:26:52
+[2m   Duration [22m201ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/order.test.ts [2m([22m[2m28 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+   [32m✓[39m order state machine [2m(6)[22m
+     [32m✓[39m allows the happy path[32m 1[2mms[22m[39m
+     [32m✓[39m refuses to resurrect a terminal order[32m 0[2mms[22m[39m
+     [32m✓[39m refuses to skip validation[32m 0[2mms[22m[39m
+     [32m✓[39m names both ends in the error, so logs are actionable[32m 0[2mms[22m[39m
+     [32m✓[39m every status is reachable from RECEIVED[32m 0[2mms[22m[39m
+     [32m✓[39m has no transition out of a terminal status[32m 0[2mms[22m[39m
+   [32m✓[39m PlaceOrderInput [2m(7)[22m
+     [32m✓[39m accepts a well formed limit order[32m 1[2mms[22m[39m
+     [32m✓[39m rejects a quantity outside the round lot[32m 0[2mms[22m[39m
+     [32m✓[39m requires a limit price on a limit order[32m 0[2mms[22m[39m
+     [32m✓[39m forbids a limit price on a market order[32m 0[2mms[22m[39m
+     [32m✓[39m requires a stop price on a stop order[32m 0[2mms[22m[39m
+     [32m✓[39m rejects a non-positive price[32m 0[2mms[22m[39m
+     [32m✓[39m requires an idempotency key[32m 0[2mms[22m[39m
+   [32m✓[39m wire representation of money [2m(5)[22m
+     [32m✓[39m parses a decimal string into bigint cents[32m 0[2mms[22m[39m
+     [32m✓[39m rejects a JSON number, which would lose precision[32m 0[2mms[22m[39m
+     [32m✓[39m rejects a decimal point, since the unit is already minor[32m 0[2mms[22m[39m
+     [32m✓[39m survives amounts beyond Number.MAX_SAFE_INTEGER[32m 0[2mms[22m[39m
+     [32m✓[39m round-trips[32m 0[2mms[22m[39m
+   [32m✓[39m ticker [2m(10)[22m
+     [32m✓[39m accepts PETR4[32m 0[2mms[22m[39m
+     [32m✓[39m accepts VALE3[32m 0[2mms[22m[39m
+     [32m✓[39m accepts ITUB4[32m 0[2mms[22m[39m
+     [32m✓[39m accepts BOVA11[32m 0[2mms[22m[39m
+     [32m✓[39m accepts PETR4F[32m 0[2mms[22m[39m
+     [32m✓[39m rejects petr4[32m 0[2mms[22m[39m
+     [32m✓[39m rejects PETR[32m 0[2mms[22m[39m
+     [32m✓[39m rejects PE4[32m 0[2mms[22m[39m
+     [32m✓[39m rejects PETR456[32m 0[2mms[22m[39m
+     [32m✓[39m rejects [32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m28 passed[39m[22m[90m (28)[39m
+[2m   Start at [22m 12:26:52
+[2m   Duration [22m 220ms[2m (transform 70ms, setup 0ms, import 103ms, tests 5ms, environment 0ms)[22m
+
+[?25h
