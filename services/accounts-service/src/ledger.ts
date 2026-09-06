@@ -12,7 +12,14 @@ export type AccountKind =
   | "EXTERNAL";
 
 export type TransactionKind =
-  "DEPOSIT" | "WITHDRAWAL" | "TRADE" | "SETTLEMENT" | "FEE" | "REVERSAL";
+  | "DEPOSIT"
+  | "WITHDRAWAL"
+  | "RESERVATION"
+  | "RELEASE"
+  | "TRADE"
+  | "SETTLEMENT"
+  | "FEE"
+  | "REVERSAL";
 
 export interface EntryInput {
   readonly accountId: string;
@@ -162,6 +169,37 @@ export function createLedger(location = ":memory:") {
     return readTransaction(id, input.kind, occurredAt, false);
   }
 
+  function reserve(
+    cashAccountId: string,
+    reservedAccountId: string,
+    amountCents: bigint,
+    idempotencyKey: string,
+    correlationId?: string,
+  ): PostedTransaction {
+    if (amountCents <= 0n) throw new RangeError("reservation must be positive");
+
+    const existing = findByKey.get(idempotencyKey) as
+      { id: string; kind: TransactionKind; occurred_at: string } | undefined;
+    if (existing) {
+      return readTransaction(existing.id, existing.kind, existing.occurred_at, true);
+    }
+
+    const available = balance(cashAccountId);
+    if (available < amountCents) {
+      throw new InsufficientFundsError(cashAccountId, available, amountCents);
+    }
+
+    return post({
+      kind: "RESERVATION",
+      idempotencyKey,
+      ...(correlationId === undefined ? {} : { correlationId }),
+      entries: [
+        { accountId: cashAccountId, amountCents: -amountCents },
+        { accountId: reservedAccountId, amountCents },
+      ],
+    });
+  }
+
   function statement(accountId: string, limit = 50) {
     const query = db.prepare(
       `SELECT e.id, e.amount_cents, e.created_at, t.kind, t.id AS transaction_id,
@@ -220,6 +258,7 @@ export function createLedger(location = ":memory:") {
     openAccount,
     balance,
     post,
+    reserve,
     reverse,
     statement,
     totalAcrossAllAccounts,

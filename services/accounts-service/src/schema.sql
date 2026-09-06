@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS accounts (
 CREATE TABLE IF NOT EXISTS transactions (
   id              TEXT PRIMARY KEY,
   kind            TEXT NOT NULL CHECK (kind IN
-                    ('DEPOSIT','WITHDRAWAL','TRADE','SETTLEMENT','FEE','REVERSAL')),
+                    ('DEPOSIT','WITHDRAWAL','RESERVATION','RELEASE',
+                     'TRADE','SETTLEMENT','FEE','REVERSAL')),
   occurred_at     TEXT NOT NULL,
   idempotency_key TEXT UNIQUE,
   correlation_id  TEXT,
