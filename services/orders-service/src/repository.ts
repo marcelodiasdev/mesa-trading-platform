@@ -21,6 +21,7 @@ export interface Order {
   readonly limitPriceCents: bigint | null;
   readonly stopPriceCents: bigint | null;
   readonly averagePriceCents: bigint | null;
+  readonly reservationId: string | null;
   readonly createdAt: string;
   readonly updatedAt: string;
   readonly replayed: boolean;
@@ -83,6 +84,7 @@ interface OrderRow {
   limit_price_cents: bigint | null;
   stop_price_cents: bigint | null;
   average_price_cents: bigint | null;
+  reservation_id: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -114,6 +116,9 @@ export function createOrderRepository(location = ":memory:") {
        filled_delta, price_cents, reason, occurred_at)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
   );
+  const attachReservation = db.prepare(
+    `UPDATE orders SET reservation_id = ?, updated_at = ? WHERE id = ?`,
+  );
   const updateOrder = db.prepare(
     `UPDATE orders SET status = ?, filled_quantity = ?, average_price_cents = ?, updated_at = ?
      WHERE id = ?`,
@@ -143,6 +148,7 @@ export function createOrderRepository(location = ":memory:") {
     stopPriceCents: row.stop_price_cents === null ? null : BigInt(row.stop_price_cents),
     averagePriceCents:
       row.average_price_cents === null ? null : BigInt(row.average_price_cents),
+    reservationId: row.reservation_id,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
     replayed,
@@ -266,6 +272,11 @@ export function createOrderRepository(location = ":memory:") {
     return get(orderId);
   }
 
+  function attach(orderId: string, reservationId: string, now = new Date()): Order {
+    attachReservation.run(reservationId, now.toISOString(), orderId);
+    return get(orderId);
+  }
+
   function events(orderId: string): OrderEvent[] {
     const rows = selectEvents.all(orderId) as {
       sequence: bigint;
@@ -303,7 +314,7 @@ export function createOrderRepository(location = ":memory:") {
     return Number(row.held);
   }
 
-  return { db, place, get, advance, fill, events, listByAccount, heldQuantity };
+  return { db, place, get, advance, attach, fill, events, listByAccount, heldQuantity };
 }
 
 export type OrderRepository = ReturnType<typeof createOrderRepository>;

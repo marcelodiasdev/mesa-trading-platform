@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS orders (
   stop_price_cents    INTEGER CHECK (stop_price_cents IS NULL OR stop_price_cents > 0),
   average_price_cents INTEGER,
   idempotency_key     TEXT NOT NULL UNIQUE,
+  reservation_id      TEXT,
   correlation_id      TEXT,
   created_at          TEXT NOT NULL,
   updated_at          TEXT NOT NULL,

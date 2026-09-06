@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS transactions (
                     ('DEPOSIT','WITHDRAWAL','RESERVATION','RELEASE',
                      'TRADE','SETTLEMENT','FEE','REVERSAL')),
   occurred_at     TEXT NOT NULL,
-  idempotency_key TEXT UNIQUE,
+  idempotency_key     TEXT NOT NULL UNIQUE,
+  reservation_id      TEXT,
   correlation_id  TEXT,
   reverses_id     TEXT REFERENCES transactions(id)
 );

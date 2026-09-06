@@ -6,7 +6,7 @@ import {
   OrderIdSchema,
   TickerSchema,
   TimestampSchema,
-} from "./primitives";
+} from "./primitives.ts";
 
 export const ORDER_SIDES = ["BUY", "SELL"] as const;
 export const OrderSideSchema = z.enum(ORDER_SIDES);
