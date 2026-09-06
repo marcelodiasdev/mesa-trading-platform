@@ -220,7 +220,8 @@ produces exactly one order; a test asserting no personal data reaches the logs.
 - [x] Integer-cent money type with property-based tests
 - [x] Shared contracts and HTTP client
 - [x] Accounts service with an immutable double-entry ledger
-- [ ] Orders service
+- [x] Fund reservations, so two orders cannot commit the same cash
+- [x] Orders service with a state machine and pre-trade risk checks
 - [ ] Market data service
 - [ ] Host shell with routing and mocked auth
 - [ ] Portfolio remote via Module Federation
