@@ -302,12 +302,13 @@ Coverage worth pointing at:
 - [x] Portfolio remote via Module Federation
 - [x] Order ticket with idempotent submission
 - [x] Live quote feed with per-ticker subscriptions and order book
+- [x] CI pipeline
+- [ ] Seed endpoint, so a fresh clone starts with data
 - [ ] Price chart
 - [ ] T+2 settlement and a reconciliation job
 - [ ] Tax reporting: average price, realised P&L, monthly assessment
 - [ ] Component and end-to-end tests
-- [ ] CI pipeline and deployment
-
+- [ ] Deployment
 ---
 
 ## License
