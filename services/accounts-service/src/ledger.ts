@@ -6,6 +6,7 @@ export type AccountKind =
   | "CLIENT_CASH"
   | "CLIENT_RESERVED"
   | "CUSTODY"
+  | "REALISED_RESULT"
   | "BROKERAGE_REVENUE"
   | "EXCHANGE_FEES"
   | "SETTLEMENT_PENDING"
@@ -41,6 +42,13 @@ export interface PostedTransaction {
   readonly occurredAt: string;
   readonly entries: readonly { accountId: string; amountCents: bigint }[];
   readonly replayed: boolean;
+}
+
+export interface DueSettlement {
+  readonly transaction_id: string;
+  readonly account_id: string;
+  readonly amount_cents: bigint;
+  readonly settlement_date: string;
 }
 
 export class UnbalancedTransactionError extends Error {
@@ -169,37 +177,6 @@ export function createLedger(location = ":memory:") {
     return readTransaction(id, input.kind, occurredAt, false);
   }
 
-  function reserve(
-    cashAccountId: string,
-    reservedAccountId: string,
-    amountCents: bigint,
-    idempotencyKey: string,
-    correlationId?: string,
-  ): PostedTransaction {
-    if (amountCents <= 0n) throw new RangeError("reservation must be positive");
-
-    const existing = findByKey.get(idempotencyKey) as
-      { id: string; kind: TransactionKind; occurred_at: string } | undefined;
-    if (existing) {
-      return readTransaction(existing.id, existing.kind, existing.occurred_at, true);
-    }
-
-    const available = balance(cashAccountId);
-    if (available < amountCents) {
-      throw new InsufficientFundsError(cashAccountId, available, amountCents);
-    }
-
-    return post({
-      kind: "RESERVATION",
-      idempotencyKey,
-      ...(correlationId === undefined ? {} : { correlationId }),
-      entries: [
-        { accountId: cashAccountId, amountCents: -amountCents },
-        { accountId: reservedAccountId, amountCents },
-      ],
-    });
-  }
-
   function statement(accountId: string, limit = 50) {
     const query = db.prepare(
       `SELECT e.id, e.amount_cents, e.created_at, t.kind, t.id AS transaction_id,
@@ -248,6 +225,86 @@ export function createLedger(location = ":memory:") {
     });
   }
 
+  function reserve(
+    cashAccountId: string,
+    reservedAccountId: string,
+    amountCents: bigint,
+    idempotencyKey: string,
+    correlationId?: string,
+  ): PostedTransaction {
+    if (amountCents <= 0n) throw new RangeError("reservation must be positive");
+
+    const existing = findByKey.get(idempotencyKey) as
+      { id: string; kind: TransactionKind; occurred_at: string } | undefined;
+    if (existing) {
+      return readTransaction(existing.id, existing.kind, existing.occurred_at, true);
+    }
+
+    const available = balance(cashAccountId);
+    if (available < amountCents) {
+      throw new InsufficientFundsError(cashAccountId, available, amountCents);
+    }
+
+    return post({
+      kind: "RESERVATION",
+      idempotencyKey,
+      ...(correlationId === undefined ? {} : { correlationId }),
+      entries: [
+        { accountId: cashAccountId, amountCents: -amountCents },
+        { accountId: reservedAccountId, amountCents },
+      ],
+    });
+  }
+
+  const insertSettlement = db.prepare(
+    `INSERT INTO settlements (transaction_id, account_id, trade_date, settlement_date, amount_cents)
+     VALUES (?, ?, ?, ?, ?)`,
+  );
+  const selectDue = db.prepare(
+    `SELECT transaction_id, account_id, amount_cents, settlement_date
+     FROM settlements
+     WHERE settled_transaction_id IS NULL AND settlement_date <= ?
+     ORDER BY settlement_date, transaction_id`,
+  );
+  const markSettled = db.prepare(
+    `UPDATE settlements SET settled_transaction_id = ? WHERE transaction_id = ?`,
+  );
+  const selectPending = db.prepare(
+    `SELECT COALESCE(SUM(amount_cents), 0) AS total FROM settlements
+     WHERE account_id = ? AND settled_transaction_id IS NULL`,
+  );
+  selectDue.setReadBigInts(true);
+  selectPending.setReadBigInts(true);
+
+  function scheduleSettlement(
+    transactionId: string,
+    accountId: string,
+    tradeDate: string,
+    settlementDate: string,
+    amountCents: bigint,
+  ): void {
+    insertSettlement.run(
+      transactionId,
+      accountId,
+      tradeDate,
+      settlementDate,
+      amountCents,
+    );
+  }
+
+  function dueOn(date: string): DueSettlement[] {
+    return selectDue.all(date) as unknown as DueSettlement[];
+  }
+
+  function markSettledBy(transactionId: string, settledBy: string): void {
+    markSettled.run(settledBy, transactionId);
+  }
+
+  function pendingFor(accountId: string): bigint {
+    const row = selectPending.get(accountId) as { total: bigint };
+    return BigInt(row.total);
+  }
+
   function totalAcrossAllAccounts(): bigint {
     const row = globalSum.get() as { total: bigint };
     return BigInt(row.total);
@@ -260,6 +317,10 @@ export function createLedger(location = ":memory:") {
     post,
     reserve,
     reverse,
+    scheduleSettlement,
+    dueOn,
+    markSettledBy,
+    pendingFor,
     statement,
     totalAcrossAllAccounts,
   };

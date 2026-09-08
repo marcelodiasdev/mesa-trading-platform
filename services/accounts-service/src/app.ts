@@ -1,6 +1,7 @@
 import Fastify, { type FastifyInstance } from "fastify";
 import cors from "@fastify/cors";
 import { z } from "zod";
+import { DEMO_ACCOUNT_ID, seedDemoAccount } from "./seed.ts";
 import {
   InsufficientFundsError,
   UnbalancedTransactionError,
@@ -30,6 +31,7 @@ const StatementQuerySchema = z.object({
 export interface AppOptions {
   readonly ledger?: Ledger;
   readonly logger?: boolean;
+  readonly seed?: boolean;
 }
 
 const EXTERNAL_ACCOUNT = "external:banking";
@@ -40,6 +42,15 @@ const reservedAccount = (accountId: string): string => `reserved:${accountId}`;
 export function buildApp(options: AppOptions = {}): FastifyInstance {
   const ledger = options.ledger ?? createLedger();
   ledger.openAccount(EXTERNAL_ACCOUNT, "EXTERNAL");
+  const seedDemo = () =>
+    seedDemoAccount(
+      ledger,
+      EXTERNAL_ACCOUNT,
+      cashAccount(DEMO_ACCOUNT_ID),
+      reservedAccount(DEMO_ACCOUNT_ID),
+    );
+
+  if (options.seed === true) seedDemo();
 
   const app = Fastify({
     logger: options.logger ?? false,
@@ -237,6 +248,15 @@ export function buildApp(options: AppOptions = {}): FastifyInstance {
       }
     },
   );
+
+  app.post("/internal/seed", async (_request, reply) => {
+    const result = seedDemo();
+    return reply.code(result.seeded ? 201 : 200).send({
+      accountId: result.accountId,
+      balanceCents: cents(result.balanceCents),
+      seeded: result.seeded,
+    });
+  });
 
   app.get("/internal/reconciliation", async () => {
     const total = ledger.totalAcrossAllAccounts();

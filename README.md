@@ -305,7 +305,7 @@ Coverage worth pointing at:
 - [x] Seed endpoint, so a fresh clone starts with data
 - [x] CI pipeline
 - [x] Trade booking with T+2 settlement in the ledger
-- [ ] Component tests for the ticket, the quote cell and the money field
+- [x] Component tests for the order ticket
 - [ ] Storybook coverage for the components that exist
 - [ ] Price chart
 ---
