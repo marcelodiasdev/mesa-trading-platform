@@ -10,22 +10,14 @@
 
 [2m Test Files [22m[1m[32m0 passed[39m[22m[90m (2)[39m
 [2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
-[2m   Start at [22m12:52:04
-[2m   Duration [22m238ms
-[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K
-[1m[33m ❯ [39m[22msrc/shell/flag-store.test.ts[2m [queued][22m
-[1m[33m ❯ [39m[22msrc/store/store.test.ts[2m 0/19[22m
-
-[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (2)[39m
-[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (19)[39m
-[2m   Start at [22m12:52:04
-[2m   Duration [22m351ms
-[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/store/store.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/shell/flag-store.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+[2m   Start at [22m12:58:57
+[2m   Duration [22m0ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/shell/flag-store.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/store/store.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 7[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
 [2m      Tests [22m [1m[32m25 passed[39m[22m[90m (25)[39m
-[2m   Start at [22m 12:52:04
-[2m   Duration [22m 499ms[2m (transform 198ms, setup 0ms, import 409ms, tests 17ms, environment 0ms)[22m
+[2m   Start at [22m 12:58:57
+[2m   Duration [22m 176ms[2m (transform 81ms, setup 0ms, import 138ms, tests 11ms, environment 0ms)[22m
 
 [?25h

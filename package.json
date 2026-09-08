@@ -6,7 +6,7 @@
     "node": ">=22"
   },
   "packageManager": "pnpm@10.27.0",
-   "scripts": {
+  "scripts": {
     "dev": "turbo run dev",
     "dev:services": "turbo run dev --filter='./services/*'",
     "dev:web": "turbo run dev --filter='./apps/*'",
@@ -15,6 +15,9 @@
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
     "format": "prettier --write \"**/*.{ts,tsx,json,md,yaml}\""
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
