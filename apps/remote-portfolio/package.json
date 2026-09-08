@@ -18,9 +18,11 @@
     "@mesa/shell-sdk": "workspace:*",
     "@mesa/ui-kit": "workspace:*",
     "@mui/material": "7.3.11",
+    "@reduxjs/toolkit": "2.12.0",
     "@tanstack/react-query": "5.102.8",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "react-redux": "9.3.0",
     "zod": "4.4.3"
   },
   "devDependencies": {
