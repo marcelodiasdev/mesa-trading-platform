@@ -10,21 +10,29 @@
 
 [2m Test Files [22m[1m[32m0 passed[39m[22m[90m (2)[39m
 [2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
-[2m   Start at [22m12:23:06
-[2m   Duration [22m101ms
-[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/bus.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+[2m   Start at [22m12:52:04
+[2m   Duration [22m0ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K
+[1m[33m ❯ [39m[22msrc/bus.test.ts[2m 0/9[22m
+[1m[33m ❯ [39m[22msrc/http.test.ts[2m [queued][22m
 
-[1m[33m ❯ [39m[22msrc/http.test.ts[2m 0/17[22m
+[2m Test Files [22m[1m[32m0 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (9)[39m
+[2m   Start at [22m12:52:04
+[2m   Duration [22m435ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/bus.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+
+[1m[33m ❯ [39m[22msrc/http.test.ts[2m 1/17[22m
 
 [2m Test Files [22m[1m[32m1 passed[39m[22m[90m (2)[39m
-[2m      Tests [22m[1m[32m9 passed[39m[22m[90m (26)[39m
-[2m   Start at [22m12:23:06
-[2m   Duration [22m201ms
-[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/http.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 44[2mms[22m[39m
+[2m      Tests [22m[1m[32m10 passed[39m[22m[90m (26)[39m
+[2m   Start at [22m12:52:04
+[2m   Duration [22m638ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/http.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 170[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
 [2m      Tests [22m [1m[32m26 passed[39m[22m[90m (26)[39m
-[2m   Start at [22m 12:23:06
-[2m   Duration [22m 286ms[2m (transform 127ms, setup 0ms, import 195ms, tests 57ms, environment 0ms)[22m
+[2m   Start at [22m 12:52:04
+[2m   Duration [22m 711ms[2m (transform 513ms, setup 0ms, import 770ms, tests 175ms, environment 1ms)[22m
 
 [?25h

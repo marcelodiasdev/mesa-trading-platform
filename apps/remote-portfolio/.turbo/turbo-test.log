@@ -10,22 +10,22 @@
 
 [2m Test Files [22m[1m[32m0 passed[39m[22m[90m (1)[39m
 [2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
-[2m   Start at [22m12:23:06
-[2m   Duration [22m101ms
-[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/api/positions.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+[2m   Start at [22m12:52:04
+[2m   Duration [22m281ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/api/positions.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 18[2mms[22m[39m
    [32m✓[39m average cost [2m(5)[22m
-     [32m✓[39m is the fill price for a single purchase[32m 2[2mms[22m[39m
+     [32m✓[39m is the fill price for a single purchase[32m 4[2mms[22m[39m
      [32m✓[39m is weighted across purchases at different prices[32m 0[2mms[22m[39m
      [32m✓[39m is unchanged by a sale[32m 0[2mms[22m[39m
-     [32m✓[39m drops a position that was fully sold[32m 1[2mms[22m[39m
+     [32m✓[39m drops a position that was fully sold[32m 0[2mms[22m[39m
      [32m✓[39m counts a partial fill by what actually executed[32m 0[2mms[22m[39m
    [32m✓[39m orders that do not move the position [2m(4)[22m
      [32m✓[39m ignores an order still working[32m 0[2mms[22m[39m
      [32m✓[39m ignores a rejected order[32m 0[2mms[22m[39m
      [32m✓[39m ignores a cancelled order that never filled[32m 0[2mms[22m[39m
-     [32m✓[39m ignores a sale with nothing held[32m 0[2mms[22m[39m
+     [32m✓[39m ignores a sale with nothing held[32m 1[2mms[22m[39m
    [32m✓[39m marking to market [2m(4)[22m
-     [32m✓[39m values the position at the last price[32m 0[2mms[22m[39m
+     [32m✓[39m values the position at the last price[32m 1[2mms[22m[39m
      [32m✓[39m reports the unrealised result in basis points of cost[32m 0[2mms[22m[39m
      [32m✓[39m reports a loss as negative[32m 0[2mms[22m[39m
      [32m✓[39m leaves the mark empty when no quote arrived[32m 0[2mms[22m[39m
@@ -35,7 +35,7 @@
 
 [2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
 [2m      Tests [22m [1m[32m15 passed[39m[22m[90m (15)[39m
-[2m   Start at [22m 12:23:06
-[2m   Duration [22m 201ms[2m (transform 47ms, setup 0ms, import 64ms, tests 15ms, environment 0ms)[22m
+[2m   Start at [22m 12:52:04
+[2m   Duration [22m 477ms[2m (transform 38ms, setup 0ms, import 77ms, tests 18ms, environment 0ms)[22m
 
 [?25h

@@ -1,0 +1,10 @@
+{
+  "latestErrorEvent": {
+    "code": "TYPE-001",
+    "message": "Failed to generate type declaration. Execute the below cmd to reproduce and fix the error. #TYPE-001\nargs: {\"cmd\":\"/Users/marcelodias/.nvm/versions/node/v24.5.0/bin/node /Users/marcelodias/Documents/mesa-trading-platform/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/bin/tsc --project /Users/marcelodias/Documents/mesa-trading-platform/apps/remote-trading/node_modules/.federation/tsconfig.414d2f8618c413fc8930704b1010f05b.json\"}\nView the docs to see how to solve: https://module-federation.io/guide/troubleshooting/type#type-001",
+    "args": {
+      "cmd": "/Users/marcelodias/.nvm/versions/node/v24.5.0/bin/node /Users/marcelodias/Documents/mesa-trading-platform/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/bin/tsc --project /Users/marcelodias/Documents/mesa-trading-platform/apps/remote-trading/node_modules/.federation/tsconfig.414d2f8618c413fc8930704b1010f05b.json"
+    },
+    "timestamp": 1788881990554
+  }
+}

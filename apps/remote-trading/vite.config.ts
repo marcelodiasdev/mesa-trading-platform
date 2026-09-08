@@ -13,6 +13,9 @@ export default defineConfig({
       shared: {
         react: { singleton: true, requiredVersion: "^19.0.0" },
         "react-dom": { singleton: true, requiredVersion: "^19.0.0" },
+        "@mesa/shell-sdk": { singleton: true },
+        "@mesa/ui-kit": { singleton: true },
+        "@tanstack/react-query": { singleton: true },
         "react-redux": { singleton: true },
         "@reduxjs/toolkit": { singleton: true },
         "@mui/material": { singleton: true },
