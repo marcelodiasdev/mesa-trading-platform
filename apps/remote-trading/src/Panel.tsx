@@ -4,6 +4,7 @@ import { useBus } from "@mesa/shell-sdk";
 import { MarketProvider } from "./market/MarketProvider";
 import { Watchlist } from "./components/Watchlist";
 import { OrderBookLadder } from "./components/OrderBookLadder";
+import { PriceChart } from "./components/PriceChart";
 import { OrderTicket } from "./ticket/OrderTicket";
 
 function TradingDesk() {
@@ -17,9 +18,12 @@ function TradingDesk() {
       <Box sx={{ width: { xs: "100%", lg: 320 }, flexShrink: 0 }}>
         <Watchlist selected={selected} onSelect={setSelected} />
       </Box>
-      <Box sx={{ flexGrow: 1, minWidth: 0, width: "100%" }}>
+
+      <Stack spacing={4} sx={{ flexGrow: 1, minWidth: 0, width: "100%" }}>
+        <PriceChart ticker={selected} />
         <OrderBookLadder ticker={selected} />
-      </Box>
+      </Stack>
+
       <Box sx={{ width: { xs: "100%", lg: 340 }, flexShrink: 0 }}>
         <OrderTicket ticker={selected} />
       </Box>

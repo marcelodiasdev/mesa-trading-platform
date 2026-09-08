@@ -306,7 +306,7 @@ Coverage worth pointing at:
 - [x] CI pipeline
 - [x] Trade booking with T+2 settlement in the ledger
 - [x] Component tests for the order ticket
-- [ ] Storybook coverage for the components that exist
+- [x] Storybook coverage for the components that exist
 - [ ] Price chart
 ---
 
