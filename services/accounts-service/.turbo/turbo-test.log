@@ -6,62 +6,62 @@
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/Users/marcelodias/Documents/mesa-trading-platform/services/accounts-service[39m
 
 [?2026h
-[1m[33m ❯ [39m[22msrc/app.test.ts[2m [queued][22m
+[1m[33m ❯ [39m[22msrc/ledger.test.ts[2m [queued][22m
 
 [2m Test Files [22m[1m[32m0 passed[39m[22m[90m (3)[39m
 [2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
-[2m   Start at [22m10:51:24
+[2m   Start at [22m12:23:07
 [2m   Duration [22m101ms
-[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K(node:32898) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
 [1m[33m ❯ [39m[22msrc/app.test.ts[2m [queued][22m
-[1m[33m ❯ [39m[22msrc/ledger.test.ts[2m 0/16[22m
+[1m[33m ❯ [39m[22msrc/ledger.test.ts[2m 1/16[22m
 [1m[33m ❯ [39m[22msrc/reservations.test.ts[2m [queued][22m
 
 [2m Test Files [22m[1m[32m0 passed[39m[22m[90m (3)[39m
-[2m      Tests [22m[1m[32m0 passed[39m[22m[90m (16)[39m
-[2m   Start at [22m10:51:24
-[2m   Duration [22m302ms
-[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K(node:11423) ExperimentalWarning: SQLite is an experimental feature and might change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-
-[1m[33m ❯ [39m[22msrc/app.test.ts[2m 0/14[22m
-[1m[33m ❯ [39m[22msrc/reservations.test.ts[2m [queued][22m
-
-[2m Test Files [22m[1m[31m1 failed[39m[22m[2m | [22m[1m[32m0 passed[39m[22m[90m (3)[39m
-[2m      Tests [22m[1m[31m9 failed[39m[22m[2m | [22m[1m[32m7 passed[39m[22m[90m (30)[39m
-[2m   Start at [22m10:51:24
-[2m   Duration [22m426ms
-[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [31m❯[39m src/ledger.test.ts [2m([22m[2m16 tests[22m[2m | [22m[31m9 failed[39m[2m)[22m[32m 67[2mms[22m[39m
-[31m     [31m×[31m accepts a balanced transaction[39m[32m 19[2mms[22m[39m
-     [32m✓[39m refuses an unbalanced transaction[32m 2[2mms[22m[39m
+[2m      Tests [22m[1m[31m1 failed[39m[22m[2m | [22m[1m[32m0 passed[39m[22m[90m (16)[39m
+[2m   Start at [22m12:23:07
+[2m   Duration [22m201ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [31m❯[39m src/ledger.test.ts [2m([22m[2m16 tests[22m[2m | [22m[31m9 failed[39m[2m)[22m[32m 30[2mms[22m[39m
+[31m     [31m×[31m accepts a balanced transaction[39m[32m 9[2mms[22m[39m
+     [32m✓[39m refuses an unbalanced transaction[32m 1[2mms[22m[39m
      [32m✓[39m reports how far off the transaction was[32m 1[2mms[22m[39m
      [32m✓[39m refuses a single-sided transaction[32m 1[2mms[22m[39m
-[31m     [31m×[31m holds across any sequence of postings[39m[32m 9[2mms[22m[39m
-[31m     [31m×[31m sums the entries[39m[32m 13[2mms[22m[39m
-     [32m✓[39m returns zero for an account with no movement[32m 2[2mms[22m[39m
+[31m     [31m×[31m holds across any sequence of postings[39m[32m 6[2mms[22m[39m
+[31m     [31m×[31m sums the entries[39m[32m 1[2mms[22m[39m
+     [32m✓[39m returns zero for an account with no movement[32m 1[2mms[22m[39m
      [32m✓[39m returns the original transaction on replay[32m 1[2mms[22m[39m
-     [32m✓[39m does not double the balance on replay[32m 0[2mms[22m[39m
-     [32m✓[39m treats a different key as a different transaction[32m 0[2mms[22m[39m
+     [32m✓[39m does not double the balance on replay[32m 1[2mms[22m[39m
+     [32m✓[39m treats a different key as a different transaction[32m 1[2mms[22m[39m
 [31m     [31m×[31m refuses to update an entry[39m[32m 1[2mms[22m[39m
 [31m     [31m×[31m refuses to delete an entry[39m[32m 1[2mms[22m[39m
 [31m     [31m×[31m undoes a transaction by mirroring it[39m[32m 1[2mms[22m[39m
 [31m     [31m×[31m keeps both the original and the reversal in the history[39m[32m 1[2mms[22m[39m
 [31m     [31m×[31m carries a running balance[39m[32m 1[2mms[22m[39m
-[31m     [31m×[31m shows newest first[39m[32m 6[2mms[22m[39m
+[31m     [31m×[31m shows newest first[39m[32m 2[2mms[22m[39m
 
 [1m[33m ❯ [39m[22msrc/app.test.ts[2m 0/14[22m
-[1m[33m ❯ [39m[22msrc/reservations.test.ts[2m [queued][22m
+[1m[33m ❯ [39m[22msrc/reservations.test.ts[2m 1/11[22m
 
 [2m Test Files [22m[1m[31m1 failed[39m[22m[2m | [22m[1m[32m0 passed[39m[22m[90m (3)[39m
-[2m      Tests [22m[1m[31m9 failed[39m[22m[2m | [22m[1m[32m7 passed[39m[22m[90m (30)[39m
-[2m   Start at [22m10:51:24
-[2m   Duration [22m426ms
-[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K(node:11421) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+[2m      Tests [22m[1m[31m9 failed[39m[22m[2m | [22m[1m[32m8 passed[39m[22m[90m (41)[39m
+[2m   Start at [22m12:23:07
+[2m   Duration [22m403ms
+[?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K(node:32900) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:11422) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(node:32899) ExperimentalWarning: SQLite is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
- [32m✓[39m src/app.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 86[2mms[22m[39m
- [32m✓[39m src/reservations.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 79[2mms[22m[39m
+
+[1m[33m ❯ [39m[22msrc/app.test.ts[2m 0/14[22m
+[1m[33m ❯ [39m[22msrc/reservations.test.ts[2m 1/11[22m
+
+[2m Test Files [22m[1m[31m1 failed[39m[22m[2m | [22m[1m[32m0 passed[39m[22m[90m (3)[39m
+[2m      Tests [22m[1m[31m9 failed[39m[22m[2m | [22m[1m[32m8 passed[39m[22m[90m (41)[39m
+[2m   Start at [22m12:23:07
+[2m   Duration [22m403ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/reservations.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 128[2mms[22m[39m
+ [32m✓[39m src/app.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 131[2mms[22m[39m
 
 [31m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 9 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[39m
 
@@ -81,9 +81,9 @@
 
 [41m[1m FAIL [22m[49m src/ledger.test.ts[2m > [22mthe zero-sum invariant[2m > [22mholds across any sequence of postings
 [31m[1mError[22m: Property failed after 1 tests
-{ seed: 287570463, path: "0:0", endOnFailure: true }
+{ seed: 1900297768, path: "0:0:0", endOnFailure: true }
 Counterexample: [[1n]]
-Shrunk 1 time(s)
+Shrunk 2 time(s)
 
 Hint: Enable verbose mode in order to have the list of all failing values encountered during the run[39m
 [90m [2m❯[22m buildError ../../node_modules/.pnpm/fast-check@4.9.0/node_modules/fast-check/lib/fast-check.js:[2m2462:16[22m[39m
@@ -213,7 +213,7 @@ Hint: Enable verbose mode in order to have the list of all failing values encoun
 
 [2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m2 passed[39m[22m[90m (3)[39m
 [2m      Tests [22m [1m[31m9 failed[39m[22m[2m | [22m[1m[32m32 passed[39m[22m[90m (41)[39m
-[2m   Start at [22m 10:51:24
-[2m   Duration [22m 563ms[2m (transform 154ms, setup 0ms, import 591ms, tests 231ms, environment 0ms)[22m
+[2m   Start at [22m 12:23:07
+[2m   Duration [22m 461ms[2m (transform 180ms, setup 0ms, import 474ms, tests 289ms, environment 0ms)[22m
 
 [?25h[41m[30m ELIFECYCLE [39m[49m [31mTest failed. See above for more details.[39m

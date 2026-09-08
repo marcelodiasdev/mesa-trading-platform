@@ -299,7 +299,7 @@ Coverage worth pointing at:
 - [x] Host shell with routing and mocked auth
 - [x] Shared Redux store with dynamic reducer injection
 - [x] Per-remote error boundaries and degraded states
-- [ ] Portfolio remote via Module Federation
+- [x] Portfolio remote via Module Federation
 - [ ] Order ticket with idempotent submission
 - [ ] Live quote feed, order book, chart
 - [ ] T+2 settlement and a reconciliation job

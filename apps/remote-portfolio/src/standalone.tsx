@@ -15,6 +15,12 @@ const flags: FlagStore = {
   subscribe: () => () => {},
 };
 
+const serviceUrls = {
+  accounts: "http://localhost:4001/",
+  orders: "http://localhost:4002/",
+  market: "http://localhost:4003/",
+} as const;
+
 const shell = {
   session: {
     userId: "11111111-1111-4111-8111-111111111111",
@@ -22,13 +28,10 @@ const shell = {
     displayName: "Standalone",
   },
   http: createHttpClient({
-    baseUrls: {
-      accounts: "http://localhost:4001/",
-      orders: "http://localhost:4002/",
-      market: "http://localhost:4003/",
-    },
+    baseUrls: serviceUrls,
     getToken: async () => "standalone-token",
   }),
+  serviceUrls,
   bus: createEventBus(),
   flags,
   navigate: (path: string) => {

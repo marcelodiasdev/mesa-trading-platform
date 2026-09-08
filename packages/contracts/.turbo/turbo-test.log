@@ -10,19 +10,19 @@
 
 [2m Test Files [22m[1m[32m0 passed[39m[22m[90m (1)[39m
 [2m      Tests [22m[1m[32m0 passed[39m[22m[90m (0)[39m
-[2m   Start at [22m10:51:24
-[2m   Duration [22m104ms
+[2m   Start at [22m12:23:06
+[2m   Duration [22m102ms
 [?2026l[?2026h[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K
 [1m[33m ❯ [39m[22msrc/order.test.ts[2m 0/28[22m
 
 [2m Test Files [22m[1m[32m0 passed[39m[22m[90m (1)[39m
 [2m      Tests [22m[1m[32m0 passed[39m[22m[90m (28)[39m
-[2m   Start at [22m10:51:24
-[2m   Duration [22m316ms
-[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/order.test.ts [2m([22m[2m28 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+[2m   Start at [22m12:23:06
+[2m   Duration [22m201ms
+[?2026l[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K[1A[K [32m✓[39m src/order.test.ts [2m([22m[2m28 tests[22m[2m)[22m[32m 12[2mms[22m[39m
    [32m✓[39m order state machine [2m(6)[22m
-     [32m✓[39m allows the happy path[32m 1[2mms[22m[39m
-     [32m✓[39m refuses to resurrect a terminal order[32m 0[2mms[22m[39m
+     [32m✓[39m allows the happy path[32m 3[2mms[22m[39m
+     [32m✓[39m refuses to resurrect a terminal order[32m 1[2mms[22m[39m
      [32m✓[39m refuses to skip validation[32m 0[2mms[22m[39m
      [32m✓[39m names both ends in the error, so logs are actionable[32m 0[2mms[22m[39m
      [32m✓[39m every status is reachable from RECEIVED[32m 0[2mms[22m[39m
@@ -38,7 +38,7 @@
    [32m✓[39m wire representation of money [2m(5)[22m
      [32m✓[39m parses a decimal string into bigint cents[32m 0[2mms[22m[39m
      [32m✓[39m rejects a JSON number, which would lose precision[32m 0[2mms[22m[39m
-     [32m✓[39m rejects a decimal point, since the unit is already minor[32m 0[2mms[22m[39m
+     [32m✓[39m rejects a decimal point, since the unit is already minor[32m 1[2mms[22m[39m
      [32m✓[39m survives amounts beyond Number.MAX_SAFE_INTEGER[32m 0[2mms[22m[39m
      [32m✓[39m round-trips[32m 0[2mms[22m[39m
    [32m✓[39m ticker [2m(10)[22m
@@ -55,7 +55,7 @@
 
 [2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
 [2m      Tests [22m [1m[32m28 passed[39m[22m[90m (28)[39m
-[2m   Start at [22m 10:51:24
-[2m   Duration [22m 332ms[2m (transform 118ms, setup 0ms, import 170ms, tests 8ms, environment 0ms)[22m
+[2m   Start at [22m 12:23:06
+[2m   Duration [22m 274ms[2m (transform 75ms, setup 0ms, import 126ms, tests 12ms, environment 0ms)[22m
 
 [?25h

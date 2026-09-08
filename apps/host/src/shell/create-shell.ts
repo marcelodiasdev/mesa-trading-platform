@@ -41,6 +41,7 @@ export function createShell({
       displayName: session.user.displayName,
     },
     http,
+    serviceUrls: config.serviceUrls,
     bus,
     flags: createFlagStore(store),
     navigate,

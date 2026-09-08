@@ -1,7 +1,8 @@
 import { createContext, useContext, useMemo, useSyncExternalStore } from "react";
+
 import type { ReactNode } from "react";
 import type { EventBus } from "./bus";
-import type { HttpClient } from "./http";
+import type { HttpClient, ServiceName } from "./http";
 
 export interface Session {
   readonly userId: string;
@@ -19,6 +20,7 @@ export interface ShellContextValue {
   readonly http: HttpClient;
   readonly bus: EventBus;
   readonly flags: FlagStore;
+  readonly serviceUrls: Readonly<Record<ServiceName, string>>;
   navigate(path: string): void;
 }
 
@@ -31,7 +33,14 @@ export interface ShellProviderProps extends ShellContextValue {
 export function ShellProvider({ children, ...value }: ShellProviderProps) {
   const memoised = useMemo(
     () => value,
-    [value.session, value.http, value.bus, value.flags, value.navigate],
+    [
+      value.session,
+      value.http,
+      value.serviceUrls,
+      value.bus,
+      value.flags,
+      value.navigate,
+    ],
   );
   return <ShellContext value={memoised}>{children}</ShellContext>;
 }
@@ -50,6 +59,8 @@ export function useShell(): ShellContextValue {
 export const useSession = (): Session => useShell().session;
 export const useHttp = (): HttpClient => useShell().http;
 export const useBus = (): EventBus => useShell().bus;
+export const useServiceUrls = (): Readonly<Record<ServiceName, string>> =>
+  useShell().serviceUrls;
 
 export function useFlag(flag: string): boolean {
   const { flags } = useShell();
