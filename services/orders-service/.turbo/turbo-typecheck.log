@@ -1,0 +1,4 @@
+
+> @mesa/orders-service@0.0.0 typecheck /Users/marcelodias/Documents/mesa-trading-platform/services/orders-service
+> tsc --noEmit
+

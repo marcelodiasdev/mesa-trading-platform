@@ -1,0 +1,4 @@
+
+> @mesa/market-service@0.0.0 typecheck /Users/marcelodias/Documents/mesa-trading-platform/services/market-service
+> tsc --noEmit
+

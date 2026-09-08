@@ -1,3 +1,5 @@
+import "./theme/augmentation";
+
 export { theme } from "./theme";
 export { marketColors, surfaces, brand, fontStacks } from "./theme/tokens";
 export { PriceChange, directionOf } from "./components/PriceChange";
