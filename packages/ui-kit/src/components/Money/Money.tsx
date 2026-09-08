@@ -6,6 +6,7 @@ export interface MoneyProps {
   readonly withSymbol?: boolean;
   readonly dense?: boolean;
   readonly signed?: boolean;
+  readonly coloured?: boolean;
 }
 
 export function Money({
@@ -13,13 +14,13 @@ export function Money({
   withSymbol = false,
   dense = false,
   signed = false,
+  coloured = false,
 }: MoneyProps) {
+  const variant = dense ? "numericSmall" : "numeric";
+
   if (cents === null) {
     return (
-      <Typography
-        variant={dense ? "numericSmall" : "numeric"}
-        sx={{ color: "market.flat" }}
-      >
+      <Typography variant={variant} sx={{ color: "market.flat" }}>
         —
       </Typography>
     );
@@ -29,8 +30,19 @@ export function Money({
   const body = withSymbol ? formatBRL(money) : formatAmount(money);
   const prefix = cents < 0n ? "−" : signed && cents > 0n ? "+" : "";
 
+  const colour = !coloured
+    ? undefined
+    : cents > 0n
+      ? "market.up"
+      : cents < 0n
+        ? "market.down"
+        : "market.flat";
+
   return (
-    <Typography variant={dense ? "numericSmall" : "numeric"}>
+    <Typography
+      variant={variant}
+      {...(colour === undefined ? {} : { sx: { color: colour } })}
+    >
       {prefix}
       {body}
     </Typography>

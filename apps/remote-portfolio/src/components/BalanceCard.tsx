@@ -7,7 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Money } from "./Money";
+import { Money } from "@mesa/ui-kit";
 import { useBalance } from "../api/queries";
 
 function Figure({ label, cents }: { label: string; cents: bigint }) {

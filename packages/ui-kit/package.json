@@ -8,7 +8,7 @@
     "./theme": "./src/theme/index.ts",
     "./package.json": "./package.json"
   },
-   "scripts": {
+  "scripts": {
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
@@ -21,6 +21,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@mesa/money": "workspace:*",
     "@mui/material": "7.3.11"
   },
   "devDependencies": {

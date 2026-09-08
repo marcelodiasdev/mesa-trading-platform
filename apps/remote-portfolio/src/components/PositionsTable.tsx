@@ -12,8 +12,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { PriceChange } from "@mesa/ui-kit";
-import { Money } from "./Money";
+import { Money, PriceChange } from "@mesa/ui-kit";
 import { buildPositions } from "../api/positions";
 import { useOrders, useQuotes } from "../api/queries";
 

@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useBus } from "@mesa/shell-sdk";
-import { Money } from "./Money";
+import { Money } from "@mesa/ui-kit";
 import { useOrders } from "../api/queries";
 import type { Order } from "../api/schemas";
 

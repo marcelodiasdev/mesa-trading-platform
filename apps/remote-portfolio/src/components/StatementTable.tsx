@@ -11,7 +11,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { Money } from "./Money";
+import { Money } from "@mesa/ui-kit";
 import { useStatement } from "../api/queries";
 
 const dateFormat = new Intl.DateTimeFormat("pt-BR", {
@@ -69,7 +69,7 @@ export function StatementTable() {
                           color: line.amountCents < 0n ? "market.down" : "market.up",
                         }}
                       >
-                        <Money cents={line.amountCents} signed />
+                        <Money cents={line.amountCents} signed coloured />
                       </Typography>
                     </TableCell>
                     <TableCell align="right">
