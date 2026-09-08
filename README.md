@@ -302,13 +302,12 @@ Coverage worth pointing at:
 - [x] Portfolio remote via Module Federation
 - [x] Order ticket with idempotent submission
 - [x] Live quote feed with per-ticker subscriptions and order book
+- [x] Seed endpoint, so a fresh clone starts with data
 - [x] CI pipeline
-- [ ] Seed endpoint, so a fresh clone starts with data
+- [x] Trade booking with T+2 settlement in the ledger
+- [ ] Component tests for the ticket, the quote cell and the money field
+- [ ] Storybook coverage for the components that exist
 - [ ] Price chart
-- [ ] T+2 settlement and a reconciliation job
-- [ ] Tax reporting: average price, realised P&L, monthly assessment
-- [ ] Component and end-to-end tests
-- [ ] Deployment
 ---
 
 ## License
