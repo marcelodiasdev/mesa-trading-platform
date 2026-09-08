@@ -6,8 +6,10 @@
     "node": ">=22"
   },
   "packageManager": "pnpm@10.27.0",
-  "scripts": {
+   "scripts": {
     "dev": "turbo run dev",
+    "dev:services": "turbo run dev --filter='./services/*'",
+    "dev:web": "turbo run dev --filter='./apps/*'",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",

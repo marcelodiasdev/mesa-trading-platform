@@ -1,3 +1,4 @@
+import "./augmentation";
 import { createTheme } from "@mui/material/styles";
 import { brand, fontStacks, marketColors, surfaces } from "./tokens";
 

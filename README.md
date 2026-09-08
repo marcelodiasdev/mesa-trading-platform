@@ -221,7 +221,7 @@ produces exactly one order; a test asserting no personal data reaches the logs.
 - [x] Shared contracts and HTTP client
 - [x] Accounts service with an immutable double-entry ledger
 - [x] Fund reservations, so two orders cannot commit the same cash
-- [x] Orders service with a state machine and pre-trade risk checks
+- [x] Market data service with a deterministic quote engine and SSE feed
 - [ ] Market data service
 - [ ] Host shell with routing and mocked auth
 - [ ] Portfolio remote via Module Federation
